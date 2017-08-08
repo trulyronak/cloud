@@ -20,8 +20,20 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-        files: [{name: "Paper.docx", type: "word", uploader: "ronak shah", date: "06/11/17"}]
+        files: []//[{fileName: "Paper.docx", uploader: "ronak shah", uploadDate: "06/11/17", downloadURL: ""}]
       };
+    }
+
+    componentDidMount() {
+      var that = this
+      firebase.database().ref("files").on("child_added", (child) => {
+        var f = child.val()
+        var files = that.state.files
+        files.push(f)
+        that.setState({files: files})
+      }, (error) => {
+        console.log(error)
+      })
     }
 
     render() {
@@ -63,18 +75,20 @@ class App extends React.Component {
 
 class File extends React.Component {
   render() {
+
+    
     return (
       <div className="col s4">
           <div className="card">
             <div className="card-image">
-              <img src="https://lorempixel.com/300/300/nature"/>
-              <span className="card-title">{this.props.file.name}</span>
+              <img src={this.props.file.downloadURL}/>
+              <span className="card-title">{this.props.file.fileName}</span>
             </div>
             <div className="card-content">
-              <p>Uploaded by {this.props.file.uploader} on {this.props.file.date}.</p>
+              <p>Uploaded by {this.props.file.uploader} on {(new Date(this.props.file.uploadDate)).toLocaleString().split(',')[0]}.</p>
             </div>
             <div className="card-action">
-              <a href="#">Download</a>
+              <a href={"" + this.props.file.downloadURL}>Download</a>
             </div>
           </div>
         </div>
@@ -84,13 +98,28 @@ class File extends React.Component {
 
 class FileUploader extends React.Component {
   uploadFile() {
-    Materialize.toast("Uploading File", 4000)
+    Materialize.toast("Uploading File", 2000)
 
     var timestamp = Number(new Date())
     var storageRef = firebase.storage().ref(timestamp.toString());
     var file_data = document.getElementById('file-input').files[0]
     console.log(file_data)
-    storageRef.put(file_data);
+    let author = document.getElementById("first_name").value
+    if (author == "") {
+      Materialize.toast("You need a username!", 4000)
+      return
+    }
+    storageRef.put(file_data).then((d) => {
+
+      var url = d.a.downloadURLs[0]
+      firebase.database().ref("files").push().set({
+        fileName: file_data.name,
+        uploader: author,
+        uploadDate: timestamp,
+        downloadURL: url
+      })
+      Materialize.toast("File Uploaded")
+    });
 
     
 
