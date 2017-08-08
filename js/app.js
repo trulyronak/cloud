@@ -73,42 +73,146 @@ class App extends React.Component {
 
    }
 
-class File extends React.Component {
-  render() {
+function getFileType(filename) {
+  return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
 
+}
+class File extends React.Component {
+  constructor(props) {
+    super(props)
+    let type = (getFileType(this.props.file.fileName))
+    var image = ""
+    // $.when(this.getFileIcon(type)).then((i) => {
+    //   this.setIcon(i)
+    // })
+    // let icon = this.getFileIcon(type)
+    // alert(icon)
+    // this.setIcon(icon)
+    this.setIcon(this.getFileIcon(type))
+    this.state = {
+      imagePreview: ""
+    }
+  }
+  setIcon(icon) {
+    var image = ""
     
+    console.log("Icon: " + icon)
+    if (icon == "image") {
+      console.log('imageee')
+      image = this.props.file.downloadURL
+    }
+    else if (icon == "-1") {
+      image = "/images/icons/_blank.png"
+    }
+    else {
+      image = icon
+    }
+    this.setState({
+      imagePreview: image
+    })
+  }
+  getIcon(icon) {
+    var image = ""
+    
+    console.log("Icon: " + icon)
+    if (icon == "image") {
+      console.log('imageee')
+      image = this.props.file.downloadURL
+    }
+    else if (icon == "-1") {
+      image = "/images/icons/_blank.png"
+    }
+    else {
+      image = icon
+    }
+    return image
+  }
+  getFileIcon(e) {
+    console.log(e)
+    let supportedTypes = ["aac","aiff","ai","avi","_blank","bmp","c","cpp","css","csv","dat","dmg","doc","dotx","dwg","dxf","eps","exe","filetypes","flv","gif","h","hpp","html","ics","iso","java","jpg","js","key","less","mid","mp3","mp4","mpg","odf","ods","odt","otp","ots","ott","_page","pdf","php","png","ppt","psd","py","qt","rar","rb","rtf","sass","scss","sql","tga","tgz","tiff","txt","wav","xls","xlsx","xml","yml","zip"]
+
+    var extension = e.toLowerCase()
+    var icon = "/images/icons/" + extension + ".png"
+    
+    if (extension == "png" || extension == "gif" || extension == "jpg" || extension == "jpeg" || extension == "tiff") {
+      return "image"
+    }
+    else if (supportedTypes.indexOf(extension) != -1) {
+      return icon
+    }
+    else {
+      return "-1"
+    }
+  }
+  deleteFile() {
+    Materialize.toast("Feature not implemented yet", 4000)
+  }
+  render() {
+   let image = this.getIcon(this.getFileIcon(getFileType(this.props.file.fileName)))
+    console.log("IMAGE" + image)
     return (
       <div className="col s4">
           <div className="card">
             <div className="card-image">
-              <img src={this.props.file.downloadURL}/>
+              <img src={image} width="330" height="330" />
               <span className="card-title">{this.props.file.fileName}</span>
             </div>
             <div className="card-content">
               <p>Uploaded by {this.props.file.uploader} on {(new Date(this.props.file.uploadDate)).toLocaleString().split(',')[0]}.</p>
             </div>
             <div className="card-action">
-              <a href={"" + this.props.file.downloadURL}>Download</a>
+            <a href={"" + this.props.file.downloadURL} download= {this.props.file.fileName} >Download</a>
+
+              <a href="#!" onClick={() => {
+                copyStringToClipboard(this.props.file.downloadURL)
+                Materialize.toast("Link Copied!", 4000)
+                }}>Copy URL</a>
+
+              <a href="#!" onClick={() => {
+                this.deleteFile()
+                }}>Delete</a>
+
             </div>
           </div>
         </div>
     )
   }
 }
+function copyStringToClipboard (string) {
+    function handler (event){
+        event.clipboardData.setData('text/plain', string);
+        event.preventDefault();
+        document.removeEventListener('copy', handler, true);
+    }
 
+    document.addEventListener('copy', handler, true);
+    document.execCommand('copy');
+}
 class FileUploader extends React.Component {
   uploadFile() {
-    Materialize.toast("Uploading File", 2000)
 
     var timestamp = Number(new Date())
-    var storageRef = firebase.storage().ref(timestamp.toString());
     var file_data = document.getElementById('file-input').files[0]
+    var storageRef = firebase.storage().ref(file_data.name);
+
     console.log(file_data)
     let author = document.getElementById("first_name").value
+    
+    var failed = false
+    if (!file_data) {
+      Materialize.toast("You need to specify a file!", 4000)
+      failed = true
+    }
     if (author == "") {
       Materialize.toast("You need a username!", 4000)
+      failed = true
+    }
+
+    if (failed) {
       return
     }
+    Materialize.toast("Uploading File", 2000)
+
     storageRef.put(file_data).then((d) => {
 
       var url = d.a.downloadURLs[0]
