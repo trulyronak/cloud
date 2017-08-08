@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+$black: #374046;
+
+body {
+  background-color: $black;
+  color: white;
+  font-family: 'Raleway', sans-serif;;
+}
+.post {
+  background-color: white;
+  color: $black;
+  height: 200%;
+  padding-top:10px;
+  margin-bottom: 20px;
+}

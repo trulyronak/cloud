@@ -1,0 +1,33 @@
+nav.top-nav a.page-title {
+    line-height: 122px;
+    font-size: 48px;
+}
+
+.btn {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 992px)
+{
+  nav .nav-wrapper a.page-title {
+      font-size: 36px;
+  }
+}
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+nav.top-nav {
+    height: 122px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 85%;
+  }
+}
+

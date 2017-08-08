@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "dropify",
+        "scope": null,
+        "escapedName": "dropify",
+        "name": "dropify",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/ronakshah/Documents/Developer/Development/Javascript/cloud"
+    ]
+  ],
+  "_from": "dropify@latest",
+  "_id": "dropify@0.2.2",
+  "_inCache": true,
+  "_location": "/dropify",
+  "_nodeVersion": "7.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/dropify-0.2.2.tgz_1489948391356_0.38917978387326"
+  },
+  "_npmUser": {
+    "name": "jeremyfagis",
+    "email": "jeremy@fagis.fr"
+  },
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "dropify",
+    "scope": null,
+    "escapedName": "dropify",
+    "name": "dropify",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/dropify/-/dropify-0.2.2.tgz",
+  "_shasum": "554ebd1da7b6dc2037855fad737dd83128f3f556",
+  "_shrinkwrap": null,
+  "_spec": "dropify",
+  "_where": "/Users/ronakshah/Documents/Developer/Development/Javascript/cloud",
+  "author": {
+    "name": "Jeremy FAGIS",
+    "email": "jeremy@fagis.fr",
+    "url": "http://fagis.fr"
+  },
+  "bugs": {
+    "url": "https://github.com/JeremyFagis/dropify/issues"
+  },
+  "dependencies": {
+    "jquery": "*"
+  },
+  "description": "Override your input files with style.",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-header": "^1.7.1",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify-css": "1.2.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.0",
+    "gulp-umd": "^0.2.0",
+    "gulp-util": "^3.0.7",
+    "gulp-wrap-js": "^0.4.1",
+    "minimist": "^1.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "554ebd1da7b6dc2037855fad737dd83128f3f556",
+    "tarball": "https://registry.npmjs.org/dropify/-/dropify-0.2.2.tgz"
+  },
+  "gitHead": "9bd4e2dbd3e81ce6a342ed689e7190bd56524e26",
+  "homepage": "https://github.com/JeremyFagis/dropify",
+  "license": "MIT",
+  "main": "dist/js/dropify.js",
+  "maintainers": [
+    {
+      "name": "jeremyfagis",
+      "email": "jeremy@fagis.fr"
+    }
+  ],
+  "name": "dropify",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremyFagis/dropify.git"
+  },
+  "scripts": {},
+  "version": "0.2.2"
+}
