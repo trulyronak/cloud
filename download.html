@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shah Cloud Services</title>
+
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css'>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="dropify/dist/css/dropify.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="page-title">Shah Cloud Services</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <section class="center">
+                <h1 id="file-status-header" class=""></h1>
+                <p id="file-status-info"></p>
+            </section>
+
+            <section class="center">
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s12 m8">
+                        <i class="material-icons prefix">search</i>
+                        <input id="filename" type="text" class="validate">
+                        <label for="icon_prefix">File Name</label>
+                        </div>
+                        <div class="input-field col s12 m4">
+                        <a class="waves-effect waves-light btn" onclick="downloadFile(false)">Download File</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script src="js/download.js"></script>    
+
+
+</body>
+
+</html>
