@@ -29,7 +29,7 @@ class App extends React.Component {
       firebase.database().ref("files").on("child_added", (child) => {
         var f = child.val()
         var files = that.state.files
-        files.push(f)
+        files.splice(0,0,f)
         that.setState({files: files})
       }, (error) => {
         console.log(error)
