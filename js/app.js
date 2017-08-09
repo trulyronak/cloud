@@ -151,7 +151,7 @@ class File extends React.Component {
    let image = this.getIcon(this.getFileIcon(getFileType(this.props.file.fileName)))
     console.log("IMAGE" + image)
     return (
-      <div className="col s4">
+      <div className="col s12 m4">
           <div className="card">
             <div className="card-image">
               <img src={image} width="330" height="330" />
