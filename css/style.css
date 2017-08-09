@@ -1,4 +1,4 @@
-nav.top-nav a.page-title {
+nav.top-nav a.page-title, a.brand-logo {
     line-height: 122px;
     font-size: 48px;
 }
@@ -10,9 +10,17 @@ nav.top-nav a.page-title {
 
 @media only screen and (max-width: 992px)
 {
-  nav .nav-wrapper a.page-title {
+  nav .nav-wrapper a.page-title, a.brand-logo {
       font-size: 36px;
   }
+}
+@media only screen and (max-width: 600px) {
+    nav .nav-wrapper a.page-title, a.brand-logo {
+      font-size: 26px;
+    }
+    a.button-collapse {
+        margin-top: 30px;
+    }
 }
 nav .nav-wrapper {
     position: relative;
@@ -33,4 +41,9 @@ nav.top-nav {
 
 img {
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+}
+
+nav ul,
+a.button-collapse {
+    margin-top: 25px;
 }

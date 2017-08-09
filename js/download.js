@@ -1,3 +1,5 @@
+$(".button-collapse").sideNav();
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCIMpxIBDw3lSWGNvAE3XpUOOncUrbNYvA",
@@ -15,13 +17,16 @@ $(document).ready(function() {
         downloadFile(file)
     }
     else {
-        noFileFound(false)
+        intro()
     }
 })
 
 
-fileFound("lightning.png")
 
+function intro() {
+    $("#file-status-header").text("Search for a File")
+    $("#file-status-info").text("Brought to you by SCS")
+}
 function noFileFound(file) {
     var txt = ""
     if (file) {
