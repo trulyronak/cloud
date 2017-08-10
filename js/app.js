@@ -2,7 +2,7 @@ var posts = [{header: "This is a Title", content: "This is Quality Content Yo"}]
 //var posts = []
 document.onload = () => {
   $('.dropify').dropify();
-
+  $("#file-input").dropify()
 }
 // Initialize Firebase
 var config = {
@@ -173,7 +173,9 @@ class File extends React.Component {
             <a href={"" + this.props.file.downloadURL} download= {this.props.file.fileName} >Download</a>
 
               <a href="#!" onClick={() => {
-                copyStringToClipboard(this.props.file.downloadURL)
+                console.log("KLSDJFLKDSJFLKDSJFKLSDJFKLJSDKLJ")
+                console.log(this.props.file.fileName)
+                copyStringToClipboard(("https://cloud.ronakshah.net/download#" + this.props.file.fileName))
                 Materialize.toast("Link Copied!", 4000)
                 }}>Copy URL</a>
 
