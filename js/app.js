@@ -111,7 +111,7 @@ class File extends React.Component {
       image = this.props.file.downloadURL
     }
     else if (icon == "-1") {
-      image = "/images/icons/_blank.png"
+      image = "https://cloud.ronakshah.net/images/icons/file.png"
     }
     else {
       image = icon
@@ -129,7 +129,7 @@ class File extends React.Component {
       image = this.props.file.downloadURL
     }
     else if (icon == "-1") {
-      image = "/images/icons/_blank.png"
+      image = "https://cloud.ronakshah.net/images/icons/file.png"
     }
     else {
       image = icon
@@ -141,7 +141,7 @@ class File extends React.Component {
     let supportedTypes = ["aac","aiff","ai","avi","_blank","bmp","c","cpp","css","csv","dat","dmg","doc","dotx","dwg","dxf","eps","exe","filetypes","flv","gif","h","hpp","html","ics","iso","java","jpg","js","key","less","mid","mp3","mp4","mpg","odf","ods","odt","otp","ots","ott","_page","pdf","php","png","ppt","psd","py","qt","rar","rb","rtf","sass","scss","sql","tga","tgz","tiff","txt","wav","xls","xlsx","xml","yml","zip"]
 
     var extension = e.toLowerCase()
-    var icon = "/images/icons/" + extension + ".png"
+    var icon = "https://cloud.ronakshah.net/images/icons/" + extension + ".png"
     
     if (extension == "png" || extension == "gif" || extension == "jpg" || extension == "jpeg" || extension == "tiff") {
       return "image"
