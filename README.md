@@ -31,4 +31,13 @@
 
 		npm install -g firebase-tools
 		firebase login
+		firebase init
+		
+8. NPM Install
+		
+		npm install
+		npm run-script build
+
+9. Deploy
+
 		firebase deploy
