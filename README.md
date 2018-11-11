@@ -3,8 +3,8 @@
 ## Setup
 
 1. [Create a Firebase App](https://console.firebase.google.com)
-2. In Firebase, create a firestore (in test mode!)
-3. In Firebase, initialize storage
+2. In Firebase, create a *firestore* **databse** (in test mode!)
+3. In Firebase, create **storage**
 4. In Firebase, set storage rules	 to the following
 
 		service firebase.storage {
@@ -29,4 +29,6 @@
 		export default config
 7. Install Firebase Tools
 
-		npm install -g 
+		npm install -g firebase-tools
+		firebase login
+		firebase deploy
