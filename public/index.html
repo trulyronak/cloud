@@ -10,6 +10,12 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+      <!-- Import Google Icon Font -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Dropify Imports -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,7 +25,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Shah Cloud Services</title>
   </head>
   <body>
     <noscript>
@@ -37,4 +43,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <!-- Import jQuery before materialize.js -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+  <script type="text/javascript">
+    console.log($('.dropify'))
+    $('.dropify').dropify();
+  </script>
 </html>
