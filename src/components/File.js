@@ -110,7 +110,11 @@ class File extends React.Component {
               <p>Uploaded on {((this.props.file.uploadDate.toDate())).toLocaleString().split(',')[0]}.</p>
             </div>
             <div className="card-action">
-            <a href={"" + this.props.file.downloadURL} download= {this.props.file.fileName} >Download</a>
+            <a 
+              href={this.props.file.downloadURL} 
+              download={this.props.file.fileName.split('<==>').slice(1).join("<==>")}>
+                Download
+            </a>
 
               <a href="#!" onClick={() => {
                 // console.log("KLSDJFLKDSJFLKDSJFKLSDJFKLJSDKLJ")

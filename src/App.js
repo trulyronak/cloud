@@ -22,7 +22,7 @@ class App extends React.Component {
     constructor() {
       super();
       this.state = {
-        files: []//[{fileName: "Paper.docx", uploader: "ronak shah", uploadDate: "06/11/17", downloadURL: ""}]
+        files: [] // [{fileName: "Paper.docx", uploader: "ronak shah", uploadDate: "06/11/17", downloadURL: ""}]
       };
     }
 
@@ -36,9 +36,12 @@ class App extends React.Component {
           } else {
             files.push(doc.data())
             this.setState({
-              "files": files
+              "files" : files
             })
           }
+        })
+        this.setState({
+          "files" : files
         })
       })
     }
