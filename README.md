@@ -3,7 +3,7 @@
 ## Setup
 
 1. [Create a Firebase App](https://console.firebase.google.com)
-2. In Firebase, create a *firestore* **databse** (in test mode!)
+2. In Firebase, create a *firestore* **database** (in test mode!)
 3. In Firebase, create **storage**
 4. In Firebase, set storage rules	 to the following
 
@@ -27,6 +27,8 @@
 			messagingSenderId: "MESSAGING_SENDER_ID"		  };
 		 
 		export default config
+		
+*Firebase Deploy Method*
 7. Install Firebase Tools
 
 		npm install -g firebase-tools
@@ -41,3 +43,20 @@
 9. Deploy
 
 		firebase deploy
+		
+*Alternative Github Deploy Method*
+
+7. Build Project
+		npm run-script build
+
+8. Create gh-pages branch
+
+		cd build/
+		git init
+		git checkout -b gh-pages
+		git add -A
+		git commit -m "Create GH-Pages"
+		git remote add origin <url>
+		git push origin gh-pages
+
+9. Enable Site in Settings-> GH-Pages
